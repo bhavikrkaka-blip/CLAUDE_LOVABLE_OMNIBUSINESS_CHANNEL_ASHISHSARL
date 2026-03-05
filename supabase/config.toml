@@ -1,0 +1,37 @@
+project_id = "zdlkzhijtxicjwtugkbh"
+
+[functions.manage-suppliers]
+verify_jwt = false
+
+[functions.manage-purchases]
+verify_jwt = false
+
+[functions.manage-sales]
+verify_jwt = false
+
+[functions.manage-stock-audit]
+verify_jwt = false
+
+[functions.manage-sale-edit]
+verify_jwt = false
+
+[functions.import-products]
+verify_jwt = false
+
+[functions.categorize-product-image]
+verify_jwt = false
+
+[functions.refine-product-image]
+verify_jwt = false
+
+[functions.generate-embeddings]
+verify_jwt = false
+
+[functions.manage-products-master]
+verify_jwt = false
+
+[functions.product-search]
+verify_jwt = false
+
+[functions.backfill-embeddings]
+verify_jwt = false

@@ -1,0 +1,381 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ashish SARL - Neumorphism (Soft UI) Design System */
+
+@layer base {
+  :root {
+    /* Neumorphic Base - Soft Off-White Background */
+    --background: 220 20% 95%;
+    --foreground: 220 15% 20%;
+
+    --card: 220 20% 95%;
+    --card-foreground: 220 15% 20%;
+
+    --popover: 220 20% 95%;
+    --popover-foreground: 220 15% 20%;
+
+    /* Soft Red Primary - Warmer, Less Sharp (E57373) */
+    --primary: 0 65% 67%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Soft Gray Secondary */
+    --secondary: 220 15% 90%;
+    --secondary-foreground: 220 15% 25%;
+
+    /* Muted Tones for Neumorphism */
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 45%;
+
+    /* Soft Red Accent */
+    --accent: 0 70% 62%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 0 65% 67%;
+
+    --radius: 1rem;
+
+    /* Neumorphism Shadow System */
+    --neu-shadow-light: rgba(255, 255, 255, 0.8);
+    --neu-shadow-dark: rgba(166, 180, 200, 0.5);
+    --neu-shadow-dark-strong: rgba(146, 160, 180, 0.6);
+    
+    /* Neumorphic Box Shadows */
+    --shadow-neu-raised: 8px 8px 16px var(--neu-shadow-dark), -8px -8px 16px var(--neu-shadow-light);
+    --shadow-neu-raised-sm: 4px 4px 8px var(--neu-shadow-dark), -4px -4px 8px var(--neu-shadow-light);
+    --shadow-neu-raised-lg: 12px 12px 24px var(--neu-shadow-dark), -12px -12px 24px var(--neu-shadow-light);
+    --shadow-neu-inset: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light);
+    --shadow-neu-inset-sm: inset 2px 2px 4px var(--neu-shadow-dark), inset -2px -2px 4px var(--neu-shadow-light);
+    
+    /* Red Glow for Accent */
+    --shadow-red-glow: 0 4px 20px hsla(0, 65%, 67%, 0.3);
+
+    /* Extended Palette */
+    --charcoal: 220 15% 20%;
+    --charcoal-light: 220 12% 30%;
+    --midnight: 220 20% 12%;
+    --ivory: 220 20% 97%;
+    --cream: 220 15% 93%;
+    --beige: 220 12% 90%;
+    --brand-red: 0 65% 67%;
+    --brand-red-light: 0 60% 75%;
+    --brand-red-dark: 0 70% 55%;
+    --warm-gray: 220 10% 55%;
+
+    /* Sidebar */
+    --sidebar-background: 220 20% 95%;
+    --sidebar-foreground: 220 15% 20%;
+    --sidebar-primary: 0 65% 67%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 90%;
+    --sidebar-accent-foreground: 220 15% 25%;
+    --sidebar-border: 220 15% 88%;
+    --sidebar-ring: 0 65% 67%;
+  }
+
+  .dark {
+    --background: 220 20% 12%;
+    --foreground: 220 15% 90%;
+
+    --card: 220 18% 15%;
+    --card-foreground: 220 15% 90%;
+
+    --popover: 220 18% 15%;
+    --popover-foreground: 220 15% 90%;
+
+    --primary: 0 60% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 220 15% 90%;
+
+    --muted: 220 12% 18%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 0 55% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 12% 22%;
+    --input: 220 12% 22%;
+    --ring: 0 60% 65%;
+
+    --neu-shadow-light: rgba(50, 55, 65, 0.5);
+    --neu-shadow-dark: rgba(0, 0, 0, 0.5);
+
+    --sidebar-background: 220 18% 14%;
+    --sidebar-foreground: 220 15% 90%;
+    --sidebar-primary: 0 60% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 12% 18%;
+    --sidebar-accent-foreground: 220 15% 90%;
+    --sidebar-border: 220 12% 20%;
+    --sidebar-ring: 0 60% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  /* === NEUMORPHIC BUTTON SYSTEM === */
+  
+  /* Raised Button - Primary CTA */
+  .neu-button {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold text-base rounded-full;
+    background: hsl(var(--background));
+    box-shadow: var(--shadow-neu-raised);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .neu-button:hover {
+    @apply bg-primary text-primary-foreground;
+    box-shadow: var(--shadow-neu-raised-sm), var(--shadow-red-glow);
+    transform: translateY(-2px);
+  }
+
+  .neu-button:active, .neu-button-pressed {
+    box-shadow: var(--shadow-neu-inset);
+    transform: translateY(0);
+  }
+
+  /* Primary Neumorphic Button with Red Accent */
+  .neu-button-primary {
+    @apply neu-button text-primary font-bold;
+  }
+
+  .neu-button-primary:hover {
+    @apply bg-primary text-primary-foreground;
+    box-shadow: var(--shadow-neu-raised-sm), var(--shadow-red-glow);
+    transform: translateY(-2px);
+  }
+
+  /* Filled Red Button */
+  .neu-button-filled {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold text-base rounded-full;
+    @apply bg-primary text-primary-foreground;
+    box-shadow: var(--shadow-neu-raised), var(--shadow-red-glow);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .neu-button-filled:hover {
+    @apply bg-accent;
+    box-shadow: var(--shadow-neu-raised-lg), 0 8px 30px hsla(0, 65%, 67%, 0.5);
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  .neu-button-filled:active {
+    box-shadow: var(--shadow-neu-inset-sm);
+    transform: translateY(0) scale(1);
+  }
+
+  /* Circular Icon Button */
+  .neu-icon-button {
+    @apply inline-flex items-center justify-center w-12 h-12 rounded-full;
+    background: hsl(var(--background));
+    box-shadow: var(--shadow-neu-raised-sm);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .neu-icon-button:hover {
+    @apply bg-primary text-primary-foreground;
+    box-shadow: var(--shadow-neu-raised), var(--shadow-red-glow);
+    transform: translateY(-2px);
+  }
+
+  .neu-icon-button:active {
+    box-shadow: var(--shadow-neu-inset-sm);
+    transform: translateY(0);
+  }
+
+  /* === NEUMORPHIC CARD === */
+  .neu-card {
+    @apply rounded-2xl p-6 transition-all duration-300;
+    background: hsl(var(--background));
+    box-shadow: var(--shadow-neu-raised);
+  }
+
+  .neu-card:hover {
+    box-shadow: var(--shadow-neu-raised-lg);
+  }
+
+  .neu-card-flat {
+    @apply rounded-2xl p-6;
+    background: hsl(var(--background));
+    box-shadow: var(--shadow-neu-raised-sm);
+  }
+
+  /* === NEUMORPHIC INPUT === */
+  .neu-input {
+    @apply w-full px-6 py-4 rounded-full text-foreground placeholder:text-muted-foreground transition-all duration-200;
+    background: hsl(var(--background));
+    box-shadow: var(--shadow-neu-inset);
+  }
+
+  .neu-input:focus {
+    @apply outline-none ring-2 ring-primary/30;
+    box-shadow: var(--shadow-neu-inset), 0 0 0 3px hsla(0, 65%, 67%, 0.15);
+  }
+
+  /* === CATEGORY CARD === */
+  .neu-category-card {
+    @apply relative rounded-3xl p-8 cursor-pointer flex flex-col items-center justify-center gap-4;
+    background: hsl(var(--background));
+    box-shadow: var(--shadow-neu-raised);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .neu-category-card:hover {
+    @apply bg-primary;
+    box-shadow: var(--shadow-neu-raised-lg), var(--shadow-red-glow);
+    transform: translateY(-4px);
+  }
+
+  .neu-category-card:hover h3,
+  .neu-category-card:hover .text-foreground {
+    @apply text-primary-foreground;
+  }
+
+  .neu-category-card:hover .text-primary,
+  .neu-category-card:hover svg {
+    @apply text-primary-foreground;
+  }
+
+  .neu-category-card:hover .bg-primary\/10 {
+    background: hsla(0, 0%, 100%, 0.2);
+  }
+
+  .neu-category-card:active {
+    box-shadow: var(--shadow-neu-inset);
+    transform: translateY(0);
+  }
+
+  /* === PRODUCT CARD === */
+  .neu-product-card {
+    @apply rounded-2xl overflow-hidden;
+    background: hsl(var(--background));
+    box-shadow: var(--shadow-neu-raised);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .neu-product-card:hover {
+    box-shadow: var(--shadow-neu-raised-lg), var(--shadow-red-glow);
+    transform: translateY(-4px);
+  }
+
+  .neu-product-card:hover .product-card-overlay {
+    @apply opacity-100;
+  }
+
+  /* === TRUST BADGE === */
+  .neu-trust-badge {
+    @apply flex flex-col items-center gap-3 p-6 rounded-2xl transition-all duration-300;
+    background: hsl(var(--background));
+    box-shadow: var(--shadow-neu-raised);
+  }
+
+  .neu-trust-badge:hover {
+    box-shadow: var(--shadow-neu-raised-lg);
+  }
+
+  /* === HEADER BAR === */
+  .neu-header {
+    @apply fixed top-0 left-0 right-0 z-50 py-4;
+    background: hsl(var(--background));
+    box-shadow: var(--shadow-neu-raised-sm);
+  }
+
+  /* Floating WhatsApp Button */
+  .floating-cta {
+    @apply fixed bottom-6 right-6 z-50;
+    @apply flex items-center gap-3 px-6 py-4 rounded-full;
+    @apply bg-[#25D366] text-white font-medium;
+    box-shadow: var(--shadow-neu-raised), 0 4px 20px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .floating-cta:hover {
+    box-shadow: var(--shadow-neu-raised-lg), 0 6px 25px rgba(37, 211, 102, 0.4);
+    transform: scale(1.05);
+  }
+}
+
+@layer utilities {
+  /* Animations */
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  /* Stagger delays */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+
+  /* Text gradient */
+  .text-gradient-red {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(0 65% 67%) 0%, hsl(0 70% 55%) 100%);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

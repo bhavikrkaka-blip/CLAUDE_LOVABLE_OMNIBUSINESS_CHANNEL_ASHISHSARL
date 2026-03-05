@@ -1,0 +1,1 @@
+ALTER TABLE public.products_master ADD COLUMN IF NOT EXISTS duplicate_override_reason TEXT;
